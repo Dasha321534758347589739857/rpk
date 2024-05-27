@@ -1,0 +1,83 @@
+﻿<Window x:Class="ChemModel.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        x:Name="this"
+        Title="AuthWindow" Height="400" Width="400" Background="#efd7f5">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Vertical" 
+     HorizontalAlignment="Center"
+     VerticalAlignment="Center">
+
+                    <TextBlock
+          
+         Foreground="Purple"
+         Text="Авторизация"
+                        FontSize="20"/>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <TextBlock  Margin="10" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Error}" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel VerticalAlignment="Center" Margin="15">
+                    <TextBox Text="{Binding Login}" Margin="0,10" materialDesign:HintAssist.Hint="Login" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="10" Foreground="Black"/>
+
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel VerticalAlignment="Center" Margin="15">
+                    <PasswordBox
+                  x:Name="Pwb"
+                   materialDesign:HintAssist.Hint="Password"
+                  materialDesign:TextFieldAssist.HasClearButton="True" 
+                Margin="0,10"
+                FontSize="10" Cursor=""/>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <Button Command="{Binding EnterCommand}" Style="{StaticResource MaterialDesignFloatingActionButton}"  Width="50"
+           Height="50" Content="Вход" Background="#dca0eb" BorderBrush="Purple"
+CommandParameter="{Binding ElementName=this}"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" />
+
+
+
+        </Grid>
+
+
+
+    </Grid>
+</Window>
